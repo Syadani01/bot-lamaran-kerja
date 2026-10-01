@@ -1,0 +1,32 @@
+name: Bot Kirim Email Otomatis
+
+on:
+  # Mengaktifkan tombol kirim manual lewat web GitHub
+  workflow_dispatch:
+  
+  # Mengatur jadwal otomatis (Senin - Jumat)
+  schedule:
+    # Jam 08:00 WIB (01:00 UTC)
+    - cron: '0 1 * * 1-5'
+    # Jam 10:00 WIB (03:00 UTC)
+    - cron: '0 3 * * 1-5'
+    # Jam 14:00 WIB (07:00 UTC)
+    - cron: '0 7 * * 1-5'
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ambil kode repositori
+        uses: actions/checkout@v4
+
+      - name: Atur Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Jalankan Skrip Kirim Email
+        env:
+          EMAIL_PENGIRIM: ${{ secrets.EMAIL_PENGIRIM }}
+          PASSWORD_APLIKASI: ${{ secrets.PASSWORD_APLIKASI }}
+        run: python send_email.py
