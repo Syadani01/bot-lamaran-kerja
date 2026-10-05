@@ -1,1 +1,29 @@
-python kirim_lamaran.py
+name: Jalankan Bot Lamaran Otomatis
+
+on:
+  # Memungkinkan Anda menjalankan bot secara manual dengan menekan tombol
+  workflow_dispatch:
+
+jobs:
+  run-python-bot:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Mengambil kode dari repositori
+      uses: actions/checkout@v4
+
+    - name: Menyiapkan Python di server GitHub
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.x'
+
+    - name: Menginstal modul pendukung jika ada
+      run: |
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+    - name: Eksekusi Kirim Email Lamaran
+      env:
+        # Menghubungkan variabel sistem ke GitHub Secrets yang sudah dibuat
+        EMAIL_PENGIRIM: ${{ secrets.ghonia021@gmail.com }}
+        PASSWORD_APLIKASI: ${{ secrets.abcd efgh ijkl mnop  }}
+      run: python email_sender.py
