@@ -27,6 +27,6 @@ jobs:
 
       - name: Jalankan Skrip Kirim Email
         env:
-          EMAIL_PENGIRIM: ${{ secrets.EMAIL_PENGIRIM }}
-          PASSWORD_APLIKASI: ${{ secrets.PASSWORD_APLIKASI }}
+          EMAIL_PENGIRIM: ${{ secrets.ghonia021@gmail.com }}
+          PASSWORD_APLIKASI: ${{ secrets.abcd efgh ijkl mnop }}
         run: python send_email.py
