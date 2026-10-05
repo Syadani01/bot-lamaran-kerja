@@ -31,17 +31,17 @@ NAMA_FILE_CV = "CV Terbaru Abdul (2).pdf"
 DAFTAR_TARGET = {
     "09:00": {
         "perusahaan": "PT Armada Footwear Indonesia",
-        "emails_hrd": ["armadafootwearindonesia@gmail.com", "recruitment.afi@huali-group.com"],
+        "emails_hrd": ["career.armadafootwearidn@gmail.com", "recruitment.afi@huali-group.com"],
         "posisi": "Operator produksi"
     },
     "11:00": {
         "perusahaan": "PT Armada Footwear Indonesia",
-        "emails_hrd": ["armadafootwearindonesia@gmail.com", "recruitment.afi@huali-group.com"],
+        "emails_hrd": ["career.armadafootwearidn@gmail.com", "recruitment.afi@huali-group.com"],
         "posisi": "Operator produksi"
     },
     "14:00": {
         "perusahaan": "PT Armada Footwear Indonesia",
-        "emails_hrd": ["armadafootwearindonesia@gmail.com", "recruitment.afi@huali-group.com"],
+        "emails_hrd": ["career.armadafootwearidn@gmail.com", "recruitment.afi@huali-group.com"],
         "posisi": "Operator produksi"
     }
 }
@@ -64,25 +64,31 @@ def kirim_email(data_perusahaan, jam_kirim):
     msg = MIMEMultipart()
     msg['From'] = EMAIL_PENGIRIM
     msg['To'] = ", ".join(emails_hrd)  # Mengirimkan ke kedua email sekaligus
-    msg['Subject'] = f"Lamaran Pekerjaan - {posisi} - {NAMA_ANDA}"
+    msg['Subject'] = f" OPERATOR PRODUKSI - ABDUL MUGHNI SUKMA SADANI"
 
-    isi_email = f"""Dengan hormat,
+    isi_email = f"""
+Dengan hormat,
+Bapak/Ibu Pimpinan HRD 
+Di 
+PT Armada Footwear Indonesia 
 
-Bapak/Ibu Tim HRD
-{perusahaan}
+ Sesuai dengan informasi yang saya terima, bahwa PT Armada Footwer Indonesia. sedang membutuhkan beberapa lowongan Pekerjaan Operator Produksi, Maka saya yang bertanda tangan dibawah ini.
 
-Melalui email ini, saya bermaksud untuk melamar pekerjaan pada posisi {posisi} di perusahaan yang Bapak/Ibu pimpin. 
+Nama : Abdul Mughni Sukma Sadani
+Tempat, tanggal lahir : Tegal, 11 Oktober 2001
+Jenis kelamin : Laki-laki
+Pendidikan terakhir : SMK
+Alamat : Jln. Jaya Sumita, RT 07 RW 02, Desa Lebeteng, Kecamatan Tarub, Kabupaten Tegal
+No Hp/Wa : 0895383240554
 
-Sebagai bahan pertimbangan, bersama email ini saya lampirkan berkas Curriculum Vitae (CV) serta dokumen pendukung lainnya dalam format PDF yang merangkum kualifikasi dan pengalaman profesional saya.
+Bermaksud untuk mengisi lowongan pekerjaan tersebut. Bersama ini saya lampirkan satu lembar daftar riwayat hidup dan data pendukung lainnya sebagai bahan pertimbangan dalam bentuk attachment.
 
-Besar harapan saya untuk diberikan kesempatan ke tahap wawancara agar dapat mendiskusikan bagaimana kontribusi saya dapat mendukung visi dan misi {perusahaan}.
-
-Demikian surat lamaran ini saya sampaikan. Terima kasih banyak atas waktu dan perhatian Bapak/Ibu.
+Bila dikehendaki, saya bersedia memenuhi panggilan untuk dites dan diwawancarai. Atas perhatian Bapak/Ibu saya mengucapkan terima kasih.
 
 Hormat saya,
 
-{NAMA_ANDA}
-No. HP/WhatsApp: {NOMOR_HP}
+(Abdul Mughni Sukma Sadani)
+
 """
     msg.attach(MIMEText(isi_email, 'plain'))
 
