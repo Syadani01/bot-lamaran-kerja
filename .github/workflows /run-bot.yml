@@ -1,7 +1,6 @@
 name: Jalankan Bot Lamaran Otomatis
 
 on:
-  # Memungkinkan Anda menjalankan bot secara manual dengan menekan tombol
   workflow_dispatch:
 
 jobs:
@@ -17,13 +16,12 @@ jobs:
       with:
         python-version: '3.x'
 
-    - name: Menginstal modul pendukung jika ada
+    - name: Memasang modul pendukung jika ada
       run: |
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
     - name: Eksekusi Kirim Email Lamaran
       env:
-        # Menghubungkan variabel sistem ke GitHub Secrets yang sudah dibuat
-        EMAIL_PENGIRIM: ${{ secrets.ghonia021@gmail.com }}
-        PASSWORD_APLIKASI: ${{ secrets.abcd efgh ijkl mnop  }}
+        EMAIL_PENGIRIM: ${{ secrets.EMAIL_PENGIRIM }}
+        PASSWORD_APLIKASI: ${{ secrets.PASSWORD_APLIKASI }}
       run: python email_sender.py
